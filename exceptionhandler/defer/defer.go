@@ -16,10 +16,19 @@ func tryDefer() {
 
 func writeFile(filename string) {
 	// 打开资源
-	file, err := os.Create(filename)
+	file, err := os.OpenFile(
+		filename, os.O_EXCL|os.O_CREATE, 0666)
 	if err != nil {
-		// 打开你失败直接抛出异常
-		panic(err)
+		// err.(*os.PathError) 将err转型为pathError类型 用pathError变量接
+		// ok变量可以接受转型的结果
+		if pathError, ok := err.(*os.PathError); !ok {
+			panic(err)
+		} else {
+			fmt.Println(pathError.Op,
+				pathError.Path,
+				pathError.Err)
+		}
+		return
 	}
 	// 声明defer 在方法结束或者后续出现异常前调用关闭资源
 	defer file.Close()

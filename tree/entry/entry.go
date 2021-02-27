@@ -5,10 +5,22 @@ import (
 	"learngo/tree"
 )
 
+// 拓展已有结构体Node
 // (组合的方式)拓展实现后序遍历
 // 首字母小写，私有的
 type myTreeNode struct {
 	node *tree.Node
+}
+
+// 内嵌的方式拓展已有类型Node,
+// 相当于把Node里面的变量、方法都拉到myTreeNodEmbedded里来。
+type myTreeNodEmbedded struct {
+	*tree.Node // embedding 内嵌的方式
+}
+
+func (myTreeNode *myTreeNodEmbedded) Traverse() {
+	// 类似重载
+	fmt.Println("This is a Traverse method!")
 }
 
 func (myNode *myTreeNode) postOrder() {
@@ -46,4 +58,9 @@ func main() {
 	//myNode := myTreeNode{&root}
 	//myNode.postOrder()
 
+	myNode := myTreeNodEmbedded{&root}
+	// 调用自己重写的方法
+	myNode.Traverse()
+	// 调用原来Node 的Traverse方法
+	myNode.Node.Traverse()
 }

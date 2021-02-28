@@ -34,9 +34,9 @@ func Run(seeds ...Request) {
 		// 把请求添加到 处理请求队列中
 		requests = append(requests, parseResult.Requests...)
 
-		// 打印结果
+		// 打印结果v
 		for _, item := range parseResult.Items {
-			log.Printf("Got item %s", item)
+			log.Printf("Got item %v", item)
 		}
 	}
 

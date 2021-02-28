@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
+	"golang.org/x/text/encoding/unicode"
 	"golang.org/x/text/transform"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -39,7 +41,8 @@ func Fetcher(url string) ([]byte, error) {
 func determineEncoding(reader io.Reader) encoding.Encoding {
 	bytes, err := bufio.NewReader(reader).Peek(1024)
 	if err != nil {
-		panic(err)
+		log.Panicf("Fetcher error: %v", err)
+		return unicode.UTF8
 	}
 	e, _, _ := charset.DetermineEncoding(bytes, "")
 	return e

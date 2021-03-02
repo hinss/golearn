@@ -25,7 +25,7 @@ func main() {
 	}
 
 	fmt.Println("Getting values")
-	// 可以多接受一个key是否存在的bool类型的返回值
+	// 可以多接受一个key判断 key在map中是否存在
 	courseName, ok := m["course"]
 	fmt.Println(courseName, ok)
 	// golang当key不存在时，仍然会返回空串，不需要判空

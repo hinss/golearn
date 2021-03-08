@@ -12,7 +12,7 @@ import (
          -121 121-  no
  */
 
-func isPalindrome(x int) bool {
+func isPalindrome2(x int) bool {
 
 	s := strconv.Itoa(x)
 	re := reverseString(s)
@@ -37,19 +37,39 @@ func reverseString(s string) string {
 	return string(runes)
 }
 
+/**
+  初始	12321   0
+   1    1232	1
+   2    123     12
+   3    12      123
+ */
+func isPalindrome(x int) bool {
+
+	if x <= 0 { return false}
+
+	reverse := 0
+	for x > reverse {
+		v := x % 10
+		reverse = reverse * 10 + v
+		x = x / 10
+	}
+
+	return x == reverse || x == reverse / 10
+}
+
 
 
 func main() {
 
 	var x int
-	x = 123
-	fmt.Printf("123 : %v\n", isPalindrome(x))
-
-	x = 121
-	fmt.Printf("121 : %v\n", isPalindrome(x))
-
-	x = -121
-	fmt.Printf("-121 : %v\n", isPalindrome(x))
+	x = 1232122
+	fmt.Printf("%v: %v", x, isPalindrome(x))
+	//
+	//x = 121
+	//fmt.Printf("121 : %v\n", isPalindrome(x))
+	//
+	//x = -121
+	//fmt.Printf("-121 : %v\n", isPalindrome(x))
 
 	//s := "abc"
 	//

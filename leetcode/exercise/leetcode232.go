@@ -1,4 +1,4 @@
-package main
+package exercise
 
 import "fmt"
 
@@ -70,7 +70,7 @@ func (this *MyQueue) Empty() bool {
  * param_4 := obj.Empty();
  */
 
-func main() {
+func TestLeetcode232() {
 
 	obj := Constructor()
 	obj.Push(1)

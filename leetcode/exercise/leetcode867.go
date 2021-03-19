@@ -1,4 +1,4 @@
-package main
+package exercise
 
 import "fmt"
 
@@ -28,7 +28,7 @@ func transpose(matrix [][]int) [][]int {
 	return grid
 }
 
-func main() {
+func TestLeetcode867() {
 
 	matrix := [][]int{
 		{1, 2, 3},

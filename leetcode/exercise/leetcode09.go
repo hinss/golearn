@@ -1,4 +1,4 @@
-package main
+package exercise
 
 import (
 	"fmt"
@@ -63,7 +63,7 @@ func isPalindrome(x int) bool {
 	return x == reverse || x == reverse/10
 }
 
-func main() {
+func TestLeetcode09() {
 
 	var x int
 	x = 1232122

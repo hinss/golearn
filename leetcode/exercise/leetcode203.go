@@ -1,4 +1,4 @@
-package main
+package exercise
 
 type ListNode struct {
 	Val  int
@@ -33,7 +33,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	return dummyHead.Next
 }
 
-func main() {
+func TestLeetcode203() {
 
 	head := &ListNode{Val: 4}
 	head.Next = &ListNode{Val: 6}

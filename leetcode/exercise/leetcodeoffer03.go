@@ -1,4 +1,4 @@
-package main
+package exercise
 
 import "fmt"
 
@@ -48,7 +48,7 @@ func findRepeatNumber2(nums []int) []int {
 	return nums
 }
 
-func main() {
+func TestLeetcodeOffer03() {
 
 	testArr := []int{2, 3, 1, 0, 5, 4}
 

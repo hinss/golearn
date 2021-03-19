@@ -45,7 +45,11 @@ func reverseString(s string) string {
 */
 func isPalindrome(x int) bool {
 
-	if x <= 0 || x%10 == 0 {
+	if x == 0 {
+		return true
+	}
+
+	if x < 0 || x%10 == 0 {
 		return false
 	}
 
@@ -72,5 +76,8 @@ func main() {
 	fmt.Printf("%v : %v\n", x, isPalindrome(x))
 
 	x = 12321
+	fmt.Printf("%v : %v\n", x, isPalindrome(x))
+
+	x = 0
 	fmt.Printf("%v : %v\n", x, isPalindrome(x))
 }

@@ -11,5 +11,8 @@ func max(vals ...int) (int, int) {
 		}
 	}
 	return maxindex, max
+}
+
+func main() {
 
 }

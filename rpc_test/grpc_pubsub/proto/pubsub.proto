@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "./;proto";
+
+message String {
+  string value = 1;
+}
+
+// 规定一个 PubsubService 提供了Publish的方法和订阅的方法
+// 其中订阅方法返回一个服务端的stream流，
+service PubsubService {
+  rpc Publish (String) returns (String);
+  rpc Subscribe (String) returns (stream String);
+}

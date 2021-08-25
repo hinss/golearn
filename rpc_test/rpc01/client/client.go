@@ -27,7 +27,7 @@ func (p *HelloServiceClient) Hello(request string, reply *string) error {
 
 /**
 实现异步发送rpc请求
-本质上就是将 client.Go返回的channel，在需要异步处理的任务后再监听channel中的返回
+本质上就是将 pub_client.Go返回的channel，在需要异步处理的任务后再监听channel中的返回
 */
 func doClientWork(client *rpc.Client) {
 	helloCall := client.Go(rpc01.HelloServiceName+".Hello", "raymond888", new(string), nil)
@@ -54,7 +54,7 @@ func main() {
 
 	doClientWork(client.Client)
 	//var reply string
-	//err = client.Hello("hello", &reply)
+	//err = pub_client.Hello("hello", &reply)
 	//if err != nil {
 	//	log.Fatal(err)
 	//}

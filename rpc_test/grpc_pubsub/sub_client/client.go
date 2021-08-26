@@ -18,6 +18,8 @@ func main() {
 	defer conn.Close()
 
 	client := proto.NewPubsubServiceClient(conn)
+	// 通过client获取一个可以接收数据的服务端grpc流
+	// 订阅了golang:这个频道，每当发布了信息服务端就会通过通道传过来
 	stream, err := client.Subscribe(
 		context.Background(), &proto.String{Value: "golang:"},
 	)

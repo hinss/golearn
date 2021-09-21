@@ -13,7 +13,7 @@ func main() {
 	}
 	fmt.Println(m)
 
-	m2 := make(map[string]int) // m2 == empty map
+	m2 := make(map[string]int) // m2 == empty mymap
 
 	var m3 map[string]int // m3 == nil
 

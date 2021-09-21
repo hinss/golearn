@@ -3,6 +3,7 @@ package main
 import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 
@@ -17,11 +18,13 @@ func (p *HelloServiceImpl) Hello(ctx context.Context, args *proto.String) (*prot
 }
 
 func main() {
+	log.Println("GRPC Server Start!")
 	grpcServer := grpc.NewServer()
 
 	proto.RegisterHelloServiceServer(grpcServer, new(HelloServiceImpl))
-
-	lis, err := net.Listen("tcp", ":1234")
+	// 注册反射服务，便于grpcurl来发送请求测试server的接口
+	reflection.Register(grpcServer)
+	lis, err := net.Listen("tcp", ":10001")
 	if err != nil {
 		log.Fatal(err)
 	}

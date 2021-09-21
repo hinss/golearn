@@ -1,10 +1,18 @@
 package main
 
-import "fmt"
+func test() int {
+
+	s := make([]int,999,1000)
+
+	return s[88]
+}
+
 
 func main() {
 
-	slice := make([]int, 4,3)
+	m := make(map[string]string, 2)
+	m["name"] = "hins"
 
-	fmt.Println(slice)
+	delete(m, "name")
+
 }

@@ -1,4 +1,4 @@
-package main
+package commucate
 
 import "fmt"
 
@@ -28,9 +28,4 @@ func chanDemo() {
 	}()
 	c <- 1
 	c <- 2
-
-}
-
-func main() {
-	chanDemo()
 }

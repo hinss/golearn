@@ -3,6 +3,7 @@ module learngo
 go 1.14
 
 require (
+	gitee.com/ChengHoHins/raydis v1.0.0
 	github.com/fullstorydev/grpcurl v1.8.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/moby/moby v20.10.8+incompatible
